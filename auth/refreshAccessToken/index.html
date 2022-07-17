@@ -59,6 +59,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#description" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -266,9 +271,52 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Refresh Access Token
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Refresh Access Token
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#success-response" class="md-nav__link">
+    Success Response
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-response" class="md-nav__link">
+    Error Response
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -299,6 +347,35 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#success-response" class="md-nav__link">
+    Success Response
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-response" class="md-nav__link">
+    Error Response
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -313,7 +390,52 @@
 
   <h1>Refresh Access Token</h1>
 
-
+<ul>
+<li><a href="#example">Reset Password</a><ul>
+<li><a href="#Description">Description</a></li>
+<li><a href="#SuccessResponse">Success Response</a></li>
+<li><a href="#ErrorResponse">Error Response</a></li>
+</ul>
+</li>
+</ul>
+<p><strong>URL</strong>: <a href="#ErrorResponse">/auth/refreshaccesstoken</a></p>
+<p><strong>Method</strong>: <code>GET</code></p>
+<hr />
+<h2 id="description">Description</h2>
+<p>Use to refresh your access token in PostgreSQL Database</p>
+<p><strong>Header</strong></p>
+<pre><code>{
+  &quot;tokenid&quot;: &quot;'Bearer' + RefreshToken&quot; : string
+}
+</code></pre>
+<hr />
+<h2 id="success-response">Success Response</h2>
+<p><strong>Code</strong>: <code>200 OK</code></p>
+<p><strong>Content</strong></p>
+<pre><code>{
+    'accessToken': RjY2NjM5NzA2OWJjuE7c,
+    'expires_in': '1800s',
+    'tokenType': 'Bearer'
+}
+</code></pre>
+<hr />
+<h2 id="error-response">Error Response</h2>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th align="center">Condition</th>
+<th align="right"><div style="width:90px"> Response </div></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>500</td>
+<td align="center">Error with jwt</td>
+<td align="right"><pre><code class="language-json" style="text-align: left;">{<br/> status: "401",<br/> message: "401 jwt not found"<br/>}</code></pre><br/></td>
+</tr>
+</tbody>
+</table>
 
               
             </article>

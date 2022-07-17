@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#table-of-contents" class="md-skip">
+        <a href="#description" class="md-skip">
           Skip to content
         </a>
       
@@ -252,8 +252,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#table-of-contents" class="md-nav__link">
-    Table of Contents
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#success-response" class="md-nav__link">
+    Success Response
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-response" class="md-nav__link">
+    Error Response
   </a>
   
 </li>
@@ -340,8 +354,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#table-of-contents" class="md-nav__link">
-    Table of Contents
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#success-response" class="md-nav__link">
+    Success Response
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-response" class="md-nav__link">
+    Error Response
   </a>
   
 </li>
@@ -362,7 +390,70 @@
 
   <h1>Register</h1>
 
-<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#example">Register</a><ul>
+<li><a href="#Description">Description</a></li>
+<li><a href="#SuccessResponse">Success Response</a></li>
+<li><a href="#ErrorResponse">Error Response</a></li>
+</ul>
+</li>
+</ul>
+<p><strong>URL</strong>: <a href="#ErrorResponse">/auth/register</a></p>
+<p><strong>Method</strong>: <code>POST</code></p>
+<hr />
+<h2 id="description">Description</h2>
+<p>Use to create a user in PostgreSQL Database with <code>email</code> and <code>password</code></p>
+<p><strong>Data constraints</strong></p>
+<pre><code>{
+  &quot;email&quot;: &quot;valid email address&quot;: string,
+  &quot;password&quot;: &quot;password in plain text&quot;: string
+}
+</code></pre>
+<p><strong>Data example</strong></p>
+<pre><code>{
+  &quot;email&quot;: &quot;kylianG@gmail.com&quot;,
+  &quot;password&quot;: &quot;azerty2-&quot;,
+}
+</code></pre>
+<hr />
+<h2 id="success-response">Success Response</h2>
+<p><strong>Code</strong>: <code>200 OK</code></p>
+<p><strong>Content</strong></p>
+<pre><code>{
+    'refreshToken': AYjcyMzY3ZDhiNmJkNTY,
+    'accessToken': RjY2NjM5NzA2OWJjuE7c,
+    'expires_in': '1800s',
+    'tokenType': 'Bearer'
+}
+</code></pre>
+<hr />
+<h2 id="error-response">Error Response</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Status</th>
+<th align="center">Condition</th>
+<th align="center"><div style="width:90px"> Response </div></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">403</td>
+<td align="center">If your <code>email</code> already exist in PostgreSQL Database</td>
+<td align="center"><pre><code class="language-json" style="text-align: left;">{<br/> status: "403",<br/> message: "403 Your email already exists"<br/>}</code></pre><br/></td>
+</tr>
+<tr>
+<td align="center">500</td>
+<td align="center">Error with PostgreSQL Database</td>
+<td align="center"><pre><code class="language-json" style="text-align: left;">{<br/> status: "500",<br/> message: "500 an error was detected"<br/>}</code></pre><br/></td>
+</tr>
+<tr>
+<td align="center">500</td>
+<td align="center">An error with the password</td>
+<td align="center"><pre><code class="language-json" style="text-align: left;">{<br/> status: "500",<br/> message: "500 error while generating the salt"<br/>}</code></pre><br/></td>
+</tr>
+</tbody>
+</table>
 
               
             </article>

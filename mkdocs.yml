@@ -1,0 +1,14 @@
+site_name: API BackOffice
+
+theme:
+  name: material
+  features:
+    - navigation.expand
+
+nav:
+  - Home: index.md
+  - Auth:
+    - Register: auth/register.md
+    - Login: auth/login.md
+    - Reset Password: auth/resetPassword.md
+    - Refresh Access Token: auth/refreshAccessToken.md
